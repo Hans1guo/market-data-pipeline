@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "market-data-pipeline"
+version = "0.1.0"
+description = "Offline-first market-data ETL pipeline with SQLite storage, run logging and a Streamlit dashboard, demonstrated on synthetic data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []  # the pipeline itself uses only the standard library
+
+[project.optional-dependencies]
+dashboard = ["streamlit>=1.37", "plotly>=5.20"]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10"]
+
+[project.scripts]
+mdp = "market_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+market_pipeline = ["schema.sql", "sample_data/README.md", "sample_data/*/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src"]
+strict = true
+
+[[tool.mypy.overrides]]
+module = ["plotly.*"]
+ignore_missing_imports = true

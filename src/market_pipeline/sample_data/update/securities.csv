@@ -1,0 +1,8 @@
+symbol,name,exchange,sector
+SYN-AUR,Aurora Robotics (Synthetic),DEMO,Industrials
+SYN-BLU,Bluefin Logistics (Synthetic),DEMO,Transportation
+SYN-COB,Cobalt Semiconductors (Synthetic),DEMO,Technology
+SYN-DLT,Delta Grid Energy (Synthetic),DEMO,Utilities
+SYN-EVR,Evergreen Foods (Synthetic),DEMO,Consumer Staples
+SYN-FJD,Fjord Biotech (Synthetic),DEMO,Health Care
+SYN-GLC,Glacier Minerals (Synthetic),DEMO,Materials
